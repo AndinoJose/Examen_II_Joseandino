@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,6 +44,30 @@ namespace Datos.Accesos
             }
             return IdFactura;
         }
+
+        public DataTable ListarPedido()
+        {
+            DataTable listaPedido = new DataTable();
+
+            try
+            {
+                string sql = "SELECT * FROM pedido;";
+                conn = new MySqlConnection(cadena);
+                conn.Open();
+
+                cmd = new MySqlCommand(sql, conn);
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+                listaPedido.Load(reader);
+                reader.Close();
+                conn.Close();
+            }
+            catch (Exception)
+            {
+            }
+            return listaPedido;
+        }
+
 
 
     }

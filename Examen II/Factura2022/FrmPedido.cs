@@ -32,8 +32,15 @@ namespace Factura2022
 
         private void FrmFactura_Load(object sender, EventArgs e)
         {
-            PedidoDataGridView.DataSource = insertarFactura;
+            ListaPedido();
+
         }
+        
+        private void ListaPedido()
+        {
+            PedidoDataGridView.DataSource = facturaDA.ListarPedido();
+        }
+            
 
         private void CodigoProductoTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -52,57 +59,41 @@ namespace Factura2022
             }
         }
 
-        //private void CantidadTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        //{
-        //    if (e.KeyChar == (char)Keys.Enter && !string.IsNullOrEmpty(CantidadTextBox.Text))
-        //    {
-        //        Factura detalleFactura = new Factura();
-        //        insertarFactura. = producto.Codigo;
-        //        detalleFactura.Descripcion = producto.Descripcion;
-        //        detalleFactura.Cantidad = Convert.ToInt32(CantidadTextBox.Text);
-        //        detalleFactura.Precio = producto.Precio;
-        //        detalleFactura.Total = producto.Precio * Convert.ToInt32(CantidadTextBox.Text);
+     
 
-        //        subTotal += detalleFactura.Total;
-        //        isv = subTotal * 0.15M;
-        //        totalAPagar = subTotal + isv;
+        private void CantidadTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter && !string.IsNullOrEmpty(CantidadTextBox.Text))
+            {
+              
 
-        //        SubTotalTextBox.Text = subTotal.ToString();
-        //        ISVTextBox.Text = isv.ToString();
-        //        TotalTextBox.Text = totalAPagar.ToString();
+            }
+        }
 
-        //        detalleFacturaLista.Add(detalleFactura);
-        //        DetalleDataGridView.DataSource = null;
-        //        DetalleDataGridView.DataSource = detalleFacturaLista;
+        private void GuardarButton_Click(object sender, EventArgs e)
+        {
+            factura.Fecha = FechaDateTimePicker.Value;
+            factura.SubTotal = Convert.ToDecimal(SubTotalTextBox.Text);
+            factura.Impuesto = Convert.ToDecimal(ISVTextBox.Text);
+            factura.Total = Convert.ToDecimal(TotalTextBox.Text);
 
+            int IdPedido = 0;
 
-        //    }
-        //}
+            IdPedido = facturaDA.InsertarFactura(factura);
 
-        //private void GuardarButton_Click(object sender, EventArgs e)
-        //{
-        //    factura.Fecha = FechaDateTimePicker.Value;
-        //    factura.SubTotal = Convert.ToDecimal(SubTotalTextBox.Text);
-        //    factura.Impuesto = Convert.ToDecimal(ISVTextBox.Text);
-        //    factura.Total = Convert.ToDecimal(TotalTextBox.Text);
-
-        //    int IdPedido = 0;
-
-        //    IdPedido = facturaDA.InsertarFactura(factura);
-
-        //    if (IdPedido != 0)
-        //    {
-        //        foreach (var item in insertarFactura)
-        //        {
-        //            item.IdPedido = IdPedido;
-        //            facturaDA.InsertarFactura(item);
-        //        }
-        //    }
+            if (IdPedido != 0)
+            {
+                foreach (var item in insertarFactura)
+                {
+                    item.IdPedido = IdPedido.ToString();
+                    facturaDA.InsertarFactura(item);
+                }
+            }
 
 
-        //}
+        }
 
-
+       
     }
 
 }

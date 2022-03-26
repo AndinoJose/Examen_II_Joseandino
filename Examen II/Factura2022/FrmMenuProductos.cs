@@ -161,6 +161,6 @@ namespace Factura2022
             LimpiarControles();
         }
 
-       
+      
     }
 }

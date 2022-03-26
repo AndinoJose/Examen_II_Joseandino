@@ -147,7 +147,6 @@
             this.UsuariosDataGridView.Name = "UsuariosDataGridView";
             this.UsuariosDataGridView.Size = new System.Drawing.Size(658, 161);
             this.UsuariosDataGridView.TabIndex = 16;
-           
             // 
             // existenciatextBox
             // 

@@ -46,9 +46,15 @@
             this.label8 = new System.Windows.Forms.Label();
             this.SubTotalTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.nomclientelabel = new System.Windows.Forms.Label();
+            this.idpedidotextBox = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PedidoDataGridView)).BeginInit();
             this.groupBox3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -59,12 +65,11 @@
             this.groupBox2.Controls.Add(this.DescripcionProductoTextBox);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Location = new System.Drawing.Point(12, 81);
+            this.groupBox2.Location = new System.Drawing.Point(16, 88);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(833, 63);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Producto";
             // 
             // CantidadTextBox
             // 
@@ -126,6 +131,7 @@
             this.PedidoDataGridView.ReadOnly = true;
             this.PedidoDataGridView.Size = new System.Drawing.Size(858, 183);
             this.PedidoDataGridView.TabIndex = 5;
+           
             // 
             // FechaDateTimePicker
             // 
@@ -167,6 +173,7 @@
             this.GuardarButton.TabIndex = 6;
             this.GuardarButton.Text = "Guardar";
             this.GuardarButton.UseVisualStyleBackColor = true;
+            this.GuardarButton.Click += new System.EventHandler(this.GuardarButton_Click);
             // 
             // TotalTextBox
             // 
@@ -219,11 +226,56 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "Subtotal";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.nomclientelabel);
+            this.groupBox1.Controls.Add(this.idpedidotextBox);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Location = new System.Drawing.Point(15, 7);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(833, 71);
+            this.groupBox1.TabIndex = 7;
+            this.groupBox1.TabStop = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(280, 30);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(85, 20);
+            this.textBox1.TabIndex = 6;
+            // 
+            // nomclientelabel
+            // 
+            this.nomclientelabel.AutoSize = true;
+            this.nomclientelabel.Location = new System.Drawing.Point(220, 34);
+            this.nomclientelabel.Name = "nomclientelabel";
+            this.nomclientelabel.Size = new System.Drawing.Size(39, 13);
+            this.nomclientelabel.TabIndex = 5;
+            this.nomclientelabel.Text = "Cliente";
+            // 
+            // idpedidotextBox
+            // 
+            this.idpedidotextBox.Location = new System.Drawing.Point(88, 30);
+            this.idpedidotextBox.Name = "idpedidotextBox";
+            this.idpedidotextBox.Size = new System.Drawing.Size(85, 20);
+            this.idpedidotextBox.TabIndex = 4;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(28, 34);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(55, 13);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Id Pedido:";
+            // 
             // FrmPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(857, 475);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.FechaDateTimePicker);
@@ -237,6 +289,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.PedidoDataGridView)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,5 +315,10 @@
         private System.Windows.Forms.TextBox SubTotalTextBox;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button GuardarButton;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label nomclientelabel;
+        private System.Windows.Forms.TextBox idpedidotextBox;
+        private System.Windows.Forms.Label label10;
     }
 }
